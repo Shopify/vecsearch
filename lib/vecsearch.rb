@@ -4,7 +4,7 @@ require 'faiss'
 class Vecsearch
   autoload(:GTETiny, 'vecsearch/gte_tiny')
 
-  def initialize(records=[])
+  def initialize(*records)
     @faiss = Faiss::IndexFlatL2.new(384)
     @gte = GTETiny.new
     @texts = []
