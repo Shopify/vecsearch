@@ -14,6 +14,14 @@ difficult about this.
 ## Usage
 
 ```ruby
+gem 'vecsearch'
+```
+
+```ruby
+Vecsearch.new('hello', 'goodbye').nearest('howdy') #=> 'hello'
+```
+
+```ruby
 require 'vecsearch'
 
 vs = Vecsearch.new
@@ -23,6 +31,7 @@ vs << "the sky is green"
 
 puts(vs.nearest("hey there")) # => "hello"
 ```
+
 ## Bugs
 
 Yes
