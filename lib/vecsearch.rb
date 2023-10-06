@@ -1,8 +1,8 @@
 require 'vecsearch/version'
 require 'faiss'
-require_relative 'gte_tiny'
 
 class Vecsearch
+  autoload(:GTETiny, 'vecsearch/gte_tiny')
 
   def initialize(records=[])
     @faiss = Faiss::IndexFlatL2.new(384)

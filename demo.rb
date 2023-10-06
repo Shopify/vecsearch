@@ -1,10 +1,6 @@
-require 'faiss'
-require_relative 'gte_tiny'
+require 'vecsearch'
 
-class VectorSearchIndex
-end
-
-vsi = VectorSearchIndex.new
+vsi = Vecsearch.new
 vsi << "sharks with freaking laser beams"
 vsi << "hello"
 vsi << "the sky is green"

@@ -3,6 +3,8 @@ require 'ffi'
 
 class Vecsearch
   class GTETiny
+    VENDOR = File.expand_path('../../vendor', __dir__)
+
     module CStdio
       extend FFI::Library
       ffi_lib 'c'
@@ -12,14 +14,14 @@ class Vecsearch
 
     module Bert
       extend FFI::Library
-      ffi_lib 'libbert.dylib'
+      ffi_lib File.expand_path('libbert.dylib', VENDOR)
 
       attach_function :bert_load_from_file, [:string], :pointer
       attach_function :bert_n_embd, [:pointer], :int
       attach_function :bert_encode_batch, [:pointer, :int, :int, :int, :pointer, :pointer], :void
     end
 
-    GTE_BIN = File.expand_path('gte-tiny-q4_1.ggml.bin', __dir__)
+    GTE_BIN = File.expand_path('gte-tiny-q4_1.ggml.bin', VENDOR)
     MAX_TOKENS = 512
 
     def initialize(fname=GTE_BIN)
