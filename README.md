@@ -25,11 +25,12 @@ Vecsearch.new('hello', 'goodbye').nearest('howdy') #=> 'hello'
 require 'vecsearch'
 
 vs = Vecsearch.new
-vs << "sharks with freaking laser beams"
 vs << "hello"
-vs << "the sky is green"
+vs << "behold, a non-sequitur"
+vs << "how's it goin'"
 
-puts(vs.nearest("hey there")) # => "hello"
+puts(vs.query("hey there", 2).inspect)
+# ["hello", "how's it goin'"]
 ```
 
 ## Bugs
