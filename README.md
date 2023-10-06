@@ -23,3 +23,16 @@ vs << "the sky is green"
 
 puts(vs.nearest("hey there")) # => "hello"
 ```
+## Bugs
+
+Yes
+
+## Limitations / TODO
+
+* I haven't got the mean-pooling part of gte-tiny working. It seems to work well
+  enough without it but we should do that and assert that ours generates
+  approximately the same embedding as the canonical model.
+* Batching looks unimplemented in bert.cpp; it would be nice for prefilling the
+  index.
+* Add more builds for platforms other than darwin/amd64.
+* Probably add a way to fetch an unquantized model, maybe other models entirely?
